@@ -1,0 +1,19 @@
+{
+  "name": "blogapp",
+  "version": "1.0.0",
+  "description": "A blog app built with a webserver that serves an API using Node and Express.",
+  "main": "index.js",
+  "scripts": {
+    "test": "start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/davidhle/ExpressApp.git"
+  },
+  "author": "David Le",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/davidhle/ExpressApp/issues"
+  },
+  "homepage": "https://github.com/davidhle/ExpressApp#readme"
+}
