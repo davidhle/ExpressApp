@@ -19,6 +19,17 @@ var inMemoryDB = {
   }
 };
 
+//get an array of all blog posts (like a landing page)
+app.get("/", function(req, res){
+  var posts = [];
+  for (var post in inMemoryDB) {
+    var count = 0;
+    posts[posts.length + count] = inMemoryDB[post];
+    count++;
+  }
+  res.send(posts);
+});
+
 //get a blog post with the ID
 //e.g., "localhost:3000/api/posts/iaw8743fg3rl92"
 app.get('/:id', function(req, res) {
