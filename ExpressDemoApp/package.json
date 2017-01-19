@@ -1,0 +1,24 @@
+{
+  "name": "expressapp",
+  "version": "1.0.0",
+  "description": "Learning Express",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/davidhle/ExpressApp.git"
+  },
+  "author": "David Le",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/davidhle/ExpressApp/issues"
+  },
+  "homepage": "https://github.com/davidhle/ExpressApp#readme",
+  "dependencies": {
+    "body-parser": "^1.16.0",
+    "express": "^4.14.0"
+  }
+}
