@@ -20,10 +20,13 @@ var inMemoryDB = {
   }
 };
 
+module.exports.inMemoryDB = inMemoryDB;
+
 //get an array of all blog posts (like a landing page)
 app.get("/", function(req, res){
   var posts = [];
   for (var post in inMemoryDB) {
+    console.log(inMemoryDB[post])
     var count = 0;
     posts[posts.length + count] = inMemoryDB[post];
     count++;
@@ -53,7 +56,6 @@ app.post('/', function(req, res) {
   //   }
   // }
   var id = uuidV4();
-  console.log(id);
   //what the user enters
   var reqBody = req.body;
 
@@ -61,7 +63,7 @@ app.post('/', function(req, res) {
     return res.send({Success: false, Error: "The ID is not unique"});
   }
   inMemoryDB.BlogID[id] = reqBody;
-  return res.send({Success: true, Results: inMemoryDB.BlogID[id]})
+  return res.send({Success: true, Results: inMemoryDB.BlogID[id]});
 });
 
 //Edit an existing blog post by supplying the ID &
@@ -76,5 +78,17 @@ app.put('/:id', function(req,res) {
   }
   return res.send({Success: false, Error: "The provided ID is not in the database!"});
 });
+
+//return all posts by a specified author/user
+app.get('/:firstName/:lastName', function(req, res) {
+  var author = req.params.firstName + " " + req.params.lastName;
+  var userPosts = {};
+  for(var blogID in inMemoryDB.BlogID) {
+    if (author == inMemoryDB.BlogID[blogID].Author) {
+      userPosts[blogID] = inMemoryDB.BlogID[blogID];
+    }
+  }
+  return res.send(userPosts);
+})
 
 module.exports = app;

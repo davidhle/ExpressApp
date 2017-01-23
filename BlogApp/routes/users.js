@@ -1,6 +1,6 @@
 var express = require("express");
 var app = express();
-var posts = require("./posts.js");
+var posts = require("./posts");
 var postDB = posts.inMemoryDB;
 
 var usersDB = {
