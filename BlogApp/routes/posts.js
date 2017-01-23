@@ -52,17 +52,27 @@ app.post('/', function(req, res) {
   //     Author: author
   //   }
   // }
-  var id = req.ID;
-  var title = id.Title;
-  var body = id.Body;
-  var author = id.Author;
+  var id = uuidV4();
+  console.log(id);
+  //what the user enters
+  var reqBody = req.body;
+
+  if (id in inMemoryDB.BlogID) {
+    return res.send({Success: false, Error: "The ID is not unique"});
+  }
+  inMemoryDB.BlogID[id] = reqBody;
+  return res.send({Success: true, Results: inMemoryDB.BlogID[id]})
 });
 
 //Edit an existing blog post by supplying the ID &
 //a new blog post object
 app.put('/:id', function(req,res) {
   var id = req.params.id;
+  if (id in inMemoryDB.BlogID) {
+    //update blog post
 
+  }
+  res.send({Success: false, Error: "The provided ID is not in the database!"});
 });
 
 module.exports = app;
