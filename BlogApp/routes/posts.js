@@ -1,5 +1,6 @@
 var express = require("express");
 var app = express();
+var uuidV4 = require('uuid/v4'); //to create random blog IDs
 
 var inMemoryDB = {
   "BlogID" : {
@@ -27,7 +28,7 @@ app.get("/", function(req, res){
     posts[posts.length + count] = inMemoryDB[post];
     count++;
   }
-  res.send(posts);
+  res.send({Success: true, Results: posts});
 });
 
 //get a blog post with the ID
@@ -37,9 +38,31 @@ app.get('/:id', function(req, res) {
   var blogID = inMemoryDB.BlogID[id]
 
   if(blogID) {
-    return res.send(blogID)
+    return res.send({Success: true, Results: blogID})
   }
-  return res.send("There are no blog posts with that ID!");
+  return res.send({Success: false, Results: blogID, Error: "There are no blog posts with that ID!"});
 })
+
+//add a new blog post to the DB
+app.post('/', function(req, res) {
+  // {
+  //   ID: {
+  //     Title: title
+  //     Body: body
+  //     Author: author
+  //   }
+  // }
+  var id = req.ID;
+  var title = id.Title;
+  var body = id.Body;
+  var author = id.Author;
+});
+
+//Edit an existing blog post by supplying the ID &
+//a new blog post object
+app.put('/:id', function(req,res) {
+  var id = req.params.id;
+
+});
 
 module.exports = app;
