@@ -46,7 +46,7 @@ app.get('/:id', function(req, res) {
 //add a new blog post to the DB
 app.post('/', function(req, res) {
   // {
-  //   ID: {
+  //   BlogID: {
   //     Title: title
   //     Body: body
   //     Author: author
@@ -68,11 +68,13 @@ app.post('/', function(req, res) {
 //a new blog post object
 app.put('/:id', function(req,res) {
   var id = req.params.id;
+  var reqBody = req.body;
   if (id in inMemoryDB.BlogID) {
     //update blog post
-
+    inMemoryDB.BlogID[id] = reqBody;
+    return res.send({Success: true, Results: inMemoryDB.BlogID[id]});
   }
-  res.send({Success: false, Error: "The provided ID is not in the database!"});
+  return res.send({Success: false, Error: "The provided ID is not in the database!"});
 });
 
 module.exports = app;
