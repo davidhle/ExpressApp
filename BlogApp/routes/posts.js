@@ -20,6 +20,11 @@ var inMemoryDB = {
   }
 };
 
+var postCount = {
+  "David Le" : 1,
+  "Garrett Delfosse" : 1
+};
+
 module.exports.inMemoryDB = inMemoryDB;
 
 //get an array of all blog posts (like a landing page)
@@ -36,9 +41,15 @@ app.get("/", function(req, res){
 
 //get a blog post with the ID
 //e.g., "localhost:3000/api/posts/iaw8743fg3rl92"
+//also get post count when the id parameter is "count"
+//e.g., "localhost:3000/api/posts/count"
 app.get('/:id', function(req, res) {
   var id = req.params.id;
-  var blogID = inMemoryDB.BlogID[id]
+  var blogID = inMemoryDB.BlogID[id];
+
+  if (id == "count") {
+    return res.send(postCount);
+  }
 
   if(blogID) {
     return res.send({Success: true, Results: blogID})
@@ -63,6 +74,13 @@ app.post('/', function(req, res) {
     return res.send({Success: false, Error: "The ID is not unique"});
   }
   inMemoryDB.BlogID[id] = reqBody;
+  if (inMemoryDB.BlogID[id].Author in postCount) {
+    postCount[inMemoryDB.BlogID[id].Author]++;
+  } else {
+    postCount[inMemoryDB.BlogID[id].Author] = 1;
+  }
+  console.log(postCount[inMemoryDB.BlogID[id].Author]);
+  console.log(postCount);
   return res.send({Success: true, Results: inMemoryDB.BlogID[id]});
 });
 

@@ -1,5 +1,7 @@
 var express = require('express');
-var bodyParser = require('body-parser')
+var bodyParser = require('body-parser');
+var posts = require('./routes/posts');
+var users = require('./routes/users');
 var app = express();
 
 app.use(bodyParser.json()); // for parsing applciation/json
