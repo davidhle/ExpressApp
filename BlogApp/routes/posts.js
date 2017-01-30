@@ -57,8 +57,7 @@ app.put('/:id', function(req,res) {
   var id = req.params.id;
   var reqBody = req.body;
   if (id in global.inMemoryDB.BlogID) {
-    //update blog post
-    global.inMemoryDB.BlogID[id] = reqBody;
+    global.inMemoryDB.BlogID[id] = reqBody; //update blog post
     return res.send({Success: true, Results: global.inMemoryDB.BlogID[id]});
   }
   return res.send({Success: false, Error: "The provided ID is not in the database!"});
