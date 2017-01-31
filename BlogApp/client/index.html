@@ -3,11 +3,26 @@
 <html ng-app="BlogApp">
   <head>
     <title>David's Blog App</title>
-    <link rel="stylesheet" type="text/css" href="bootstrap.min.css" />
+    <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.css" />
   </head>
   <body ng-controller="mainController">
-    <script type="javascript" src="angular.min.js"></script>
-    <script type="javascript" src="index.js"></script>
-
+    <div class="container">
+      <h1>Blog App</h1>
+        <table class="table">
+          <thead>
+            <tr>
+              <th><button type="button">Home</button></th>
+              <th><button type="button">Authors</button></th>
+              <th><button type="button">Write Post</button></th>
+              <th><form action="action_page.php"><input type="text">
+                <button type="button">Search Post ID</button></form>
+              </th>
+          </tr>
+          </thead>
+        </table>
+    </div>
   </body>
+  <script src="bower_components/angular/angular.min.js"></script>
+
+  <script type="text/javascript" src="index.js"></script>
 </html>

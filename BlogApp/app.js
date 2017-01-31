@@ -2,11 +2,13 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var posts = require('./routes/posts');
 var users = require('./routes/users');
+var path = require('path');
 var app = express();
+
 
 app.set('view engine','html');
 app.use(express.static(path.join(__dirname, '/client')));
-app.use('/lib',  express.static( path.join(__dirname, '/lib')));
+app.use('/bower_components',  express.static( path.join(__dirname, '/bower_components)')));
 
 //global is an "empty" json that allows whatever you
 //define it as to be accessible in the routes
