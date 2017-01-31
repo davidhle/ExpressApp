@@ -24,7 +24,7 @@ global.inMemoryDB = {
     "9p38qhgqirgpq2": {
       "Title": "Free Moe's in the Office",
       "Body": "One time I bought Moe's for lunch and it turns out there was" +
-              "free Moe's in the office after I had already bought Moe's",
+              " free Moe's in the office after I had already bought Moe's",
       "Author": "Garrett Delfosse"
     }
   }
@@ -34,6 +34,11 @@ global.postCount = {
   "David Le" : 1,
   "Garrett Delfosse" : 1
 };
+
+app.get('/api/posts', function(req, res) {
+  console.log("Received a GET request!");
+  res.json(global.inMemoryDB);
+});
 
 app.use(bodyParser.json()); // for parsing applciation/json
 

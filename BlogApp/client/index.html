@@ -21,6 +21,13 @@
           </thead>
         </table>
     </div>
+    <div class="container">
+      <div ng-repeat="(id,post) in postDB.BlogID">
+        <h2>{{post.Title}}</h2>
+        {{post.Body}}
+        <br>-- {{post.Author}}
+      </div>
+    </div>
   </body>
   <script src="bower_components/angular/angular.min.js"></script>
 
