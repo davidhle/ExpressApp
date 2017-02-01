@@ -36,9 +36,14 @@ global.postCount = {
 };
 
 app.get('/api/posts', function(req, res) {
-  console.log("Received a GET request!");
+  console.log("Received a GET request for posts");
   res.json(global.inMemoryDB);
 });
+
+app.get('/api/users', function(req, res) {
+  console.log("Received a GET request for users")
+  res.json(global.postCount);
+})
 
 app.use(bodyParser.json()); // for parsing applciation/json
 

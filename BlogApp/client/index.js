@@ -1,20 +1,18 @@
-var app = angular.module('BlogApp', []);
+var app = angular.module('BlogApp', ['ngRoute']);
 
-app.controller('mainController', function($scope, $http) {
-  $scope.test = "Hello!";
-  
-
-  $scope.getPosts = function() {
-    $http({
-          method: 'GET',
-          url: '/api/posts'
-        })
-        .then(function(response) {
-          $scope.postDB =  response.data;
-        }, function(err) {
-          throw err;
-        });
-  }
-
-  $scope.getPosts();
-});
+app.config(['$routeProvider', '$httpProvider', '$locationProvider', function($routeProvider, $locationProvider) {
+  // $locationProvider.hashPrefix('');
+  $routeProvider.when('/', {
+    controller: 'postController',
+    templateUrl: 'views/home.html'
+  })
+  .when('/users', {
+    controller: 'usersController',
+    templateUrl: 'views/users.html'
+  })
+  .when('/writePost', {
+    controller: 'writePostController',
+    templateUrl: 'views/writePost.html'
+  })
+  .otherwise({redirectTo: '/'});
+}]);
