@@ -1,7 +1,7 @@
 var app = angular.module('BlogApp', ['ngRoute']);
 
-app.config(['$routeProvider', '$httpProvider', '$locationProvider', function($routeProvider, $locationProvider) {
-  // $locationProvider.hashPrefix('');
+app.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
+  $locationProvider.hashPrefix('');
   $routeProvider.when('/', {
     controller: 'postController',
     templateUrl: 'views/home.html'
@@ -13,6 +13,5 @@ app.config(['$routeProvider', '$httpProvider', '$locationProvider', function($ro
   .when('/writePost', {
     controller: 'writePostController',
     templateUrl: 'views/writePost.html'
-  })
-  .otherwise({redirectTo: '/'});
+  });
 }]);
