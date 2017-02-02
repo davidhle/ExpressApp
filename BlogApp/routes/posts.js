@@ -37,7 +37,7 @@ app.get('/:id', function(req, res) {
 //   }
 // }
 app.post('/', function(req, res) {
-  console.log('Received a POST request')
+  console.log('Received a POST request');
   var id = uuidV4();
   var reqBody = req.body; //what the user enters
   if (id in global.inMemoryDB.BlogID) {
@@ -55,6 +55,7 @@ app.post('/', function(req, res) {
 //Edit an existing blog post by supplying the ID &
 //a new blog post object
 app.put('/:id', function(req,res) {
+  console.log("Received a PUT request");
   var id = req.params.id;
   var reqBody = req.body;
   if (id in global.inMemoryDB.BlogID) {

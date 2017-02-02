@@ -41,9 +41,9 @@ app.get('/api/posts', function(req, res) {
 });
 
 app.get('/api/users', function(req, res) {
-  console.log("Received a GET request for users")
+  console.log("Received a GET request for users");
   res.json(global.postCount);
-})
+});
 
 app.use(bodyParser.json()); // for parsing applciation/json
 

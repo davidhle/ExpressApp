@@ -1,0 +1,16 @@
+<div class="container" controller="postController">
+  <div ng-repeat="post in postDB.BlogID | toArray | filter:searchBox">
+    <div class="media">
+      <div class="media-left">
+        <img src="img_avatar1.png" class="media-object" style="width:80px">
+      </div>
+      <div class="media-body">
+        <h2 class="media-heading">{{post.Title}}<small><i> Blog ID: {{post.$key}}</i><small align>  edit</small></small></h2>
+        <p>{{post.Body}}</p>
+        ―{{post.Author}}
+      </div>
+      <hr>
+    </div>
+
+  </div>
+</div>

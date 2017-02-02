@@ -1,0 +1,17 @@
+<div class="container">
+  <h1>Write a New Blog Post</h1>
+  <form controller="writePostController">
+    <fieldset>
+      Title:
+      <input type="text" name="title" ng-model="title" placeholder="Title of blog post" size="150">
+      <br><br>
+      Body:
+      <input type="text" name="body" ng-model="body" placeholder="Body of blog post" size="149">
+      <br><br>
+      Author:
+      <input type="text" name="author" ng-model="author" placeholder="Your name" size="148">
+      <br></br>
+      <input type="submit" value="Submit Post" ng-click="writePost()">
+    </fieldset>
+  </form>
+</div>

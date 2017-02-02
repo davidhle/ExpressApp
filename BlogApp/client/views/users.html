@@ -1,0 +1,15 @@
+<div class="container" controller="usersController">
+  <div ng-repeat="(user, count) in userDB">
+    <div class="media">
+      <div class="media-left">
+        <img src="img_avatar1.png" class="media-object" style="width:80px">
+      </div>
+      <div class="media-body">
+        <h2 class="media-heading"><u>{{user}}</u></h2>
+        <p>{{count}} post(s)</p>
+      </div>
+      <hr>
+    </div>
+
+  </div>
+</div>
