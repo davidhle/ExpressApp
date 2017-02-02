@@ -5,7 +5,7 @@
         <img src="img_avatar1.png" class="media-object" style="width:80px">
       </div>
       <div class="media-body">
-        <h2 class="media-heading">{{post.Title}}<small><i> Blog ID: {{post.$key}}</i><small align>  edit</small></small></h2>
+        <h2 class="media-heading">{{post.Title}}<small ng-model="blogID" ng-controller="editPostController"><i>{{post.$key}}</i><small align><a ng-href="#/editPost">  edit</a></small></small></h2>
         <p>{{post.Body}}</p>
         ―{{post.Author}}
       </div>

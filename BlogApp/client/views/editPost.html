@@ -1,18 +1,23 @@
 <div class="container" controller="editPostController">
   <h1>Edit Blog Post</h1>
-  <form action="writePost()">
+  <form>
   <fieldset>
-    Title:
-    <input type="text" name="title" placeholder="Title of blog post" size="150">
+    BlogID:
+    <input type="text" name="blogID" ng-model="id" placeholder="The ID of the post" size="150">
     <br>
     <br>
-    Body:
-    <input type="text" name="body" placeholder="Body of blog post" size="149">
+    New Title:
+    <input type="text" name="title" ng-model="title" placeholder="Title of blog post" size="150">
+    <br>
+    <br>
+    New Body:
+    <input type="text" name="body" ng-model="body" placeholder="Body of blog post" size="149">
     <br>
     <br>
     Author:
-    <input type="text" name="author" placeholder="Your name" size="148">
-    <input type="submit" value="Submit">
+    <input type="text" name="author" ng-model="author" placeholder="Your name" size="148">
+    <br><br>
+    <input type="submit" value="Submit" ng-click="editPost()">
   </fieldset>
 </form>
 </div>

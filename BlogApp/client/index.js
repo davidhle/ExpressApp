@@ -13,5 +13,9 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
   .when('/writePost', {
     controller: 'writePostController',
     templateUrl: 'views/writePost.html'
+  })
+  .when('/editPost', {
+    controller: 'editPostController',
+    templateUrl: 'views/editPost.html'
   });
 }]);
