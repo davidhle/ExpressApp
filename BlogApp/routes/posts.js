@@ -37,6 +37,7 @@ app.get('/:id', function(req, res) {
 //   }
 // }
 app.post('/', function(req, res) {
+  console.log('Received a POST request')
   var id = uuidV4();
   var reqBody = req.body; //what the user enters
   if (id in global.inMemoryDB.BlogID) {

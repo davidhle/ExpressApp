@@ -1,4 +1,4 @@
-var app = angular.module('BlogApp', ['ngRoute']);
+var app = angular.module('BlogApp', ['ngRoute', 'angular-toArrayFilter']);
 
 app.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
   $locationProvider.hashPrefix('');
